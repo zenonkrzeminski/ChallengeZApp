@@ -7,7 +7,7 @@
 // Wprowadzone dane:
 string name = "Eddard";
 string gender = "Mężczyzna";
-int age = 54;
+int age = 12;
 
 Console.WriteLine("Osoba kwalifikuje się do grupy:");
 
@@ -19,21 +19,21 @@ else if (age < 18)
 {
     if (gender == "Mężczyzna")
     {
-        Console.WriteLine($"(3): \"Niepełnoletni mężczyzna\"");
+        Console.WriteLine("(3): \"Niepełnoletni mężczyzna\"");
     }
     else
     {
-        Console.WriteLine($"(3): \"Niepełnoletnia kobieta\"");
+        Console.WriteLine("(3): \"Niepełnoletnia kobieta\"");
     }
 }
 else
 {
     if (gender == "Mężczyzna")
     {
-        Console.WriteLine($"(1): \"Mężczyzna poniżej 30 lat\"");
+        Console.WriteLine("(1): \"Mężczyzna poniżej 30 lat\"");
     }
     else
     {
-        Console.WriteLine($"(1): \"Kobieta poniżej 30 lat\"");
+        Console.WriteLine("(1): \"Kobieta poniżej 30 lat\"");
     }
 }
