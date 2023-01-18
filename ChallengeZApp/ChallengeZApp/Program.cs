@@ -1,5 +1,5 @@
 ﻿// Program sprawdzający płeć, wiek i pełnoletność.
-// Na koniec kawlifikująca do jednej z grup:
+// Na koniec kawlifikujący do jednej z grup:
 // (1) osób pełnoletnich poniżej 30 lat "z rozróżnieniem płci"
 // (2) osób pełnoletnich powyżej 30 lat "z podaniem imienia i wieku"
 // (3) osób niepełnoletnim "z rozróżnieniem płci"
