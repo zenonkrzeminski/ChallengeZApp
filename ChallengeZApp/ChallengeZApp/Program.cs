@@ -1,39 +1,55 @@
-﻿// Program sprawdzający płeć, wiek i pełnoletność.
-// Na koniec kawlifikujący do jednej z grup:
-// (1) osób pełnoletnich poniżej 30 lat "z rozróżnieniem płci"
-// (2) osób pełnoletnich powyżej 30 lat "z podaniem imienia i wieku"
-// (3) osób niepełnoletnim "z rozróżnieniem płci"
+﻿// Program z losowej listy 20 imion wyświetla:
+// - każde unikalne imię
+// - podaje w jakiej ilości dane imię występuje
 
-// Wprowadzone dane:
-string name = "Eddard";
-string gender = "Mężczyzna";
-int age = 12;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
-Console.WriteLine("Osoba kwalifikuje się do grupy:");
+List<string> diary = new List<string>()
+{ "Adam", "Monika", "Arek", "Adam", "Monika", "Arek", "Zenon", "Marek", "Eliza", "Adam", "Adam", "Adam", "Monika", "Arek", "Adam", "Monika", "Adam", "Monika", "Arek", "Adam" };
 
-if (age >= 30)
+Console.WriteLine("PD+ - dzień 5");
+Console.WriteLine($"Osób łącznie: {diary.Count}.\nKażde imię powtarza się:");
+
+byte repeat = 0;
+List<string> diaryWithoutRepeats = new List<string>();
+
+foreach (var name in diary)
 {
-    Console.WriteLine($"(2): \"{name}, lat {age}\"");
+    foreach (var name2 in diary)
+    {
+        if (name == name2) repeat++;
+    }
+    if (!diaryWithoutRepeats.Contains(name))
+    {
+        diaryWithoutRepeats.Add(name);
+        Console.WriteLine($"{repeat} razy - imię {name}");
+    }
+    repeat = 0;
 }
-else if (age < 18)
+
+
+
+// Program sprawdza ile i jakich cyfr występuje w danej liczbie.
+
+Console.WriteLine("\nPD - dzień 5");
+
+int checkedumber = 19711;
+string numberInString = checkedumber.ToString();
+char[] letters = numberInString.ToArray();
+
+Console.WriteLine($"W liczbie {checkedumber} występują cyfry:");
+
+byte repeatLetter = 0;
+
+List<char> numbers = new List<char>() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+foreach (var number in numbers)
 {
-    if (gender == "Mężczyzna")
+    foreach (var letter in letters)
     {
-        Console.WriteLine("(3): \"Niepełnoletni mężczyzna\"");
+        if (letter == number) repeatLetter++;
     }
-    else
-    {
-        Console.WriteLine("(3): \"Niepełnoletnia kobieta\"");
-    }
-}
-else
-{
-    if (gender == "Mężczyzna")
-    {
-        Console.WriteLine("(1): \"Mężczyzna poniżej 30 lat\"");
-    }
-    else
-    {
-        Console.WriteLine("(1): \"Kobieta poniżej 30 lat\"");
-    }
+    Console.WriteLine($"{number} => {repeatLetter} razy");
+    repeatLetter = 0;
 }
