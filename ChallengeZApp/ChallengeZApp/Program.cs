@@ -1,55 +1,16 @@
-﻿// Program z losowej listy 20 imion wyświetla:
-// - każde unikalne imię
-// - podaje w jakiej ilości dane imię występuje
+﻿using ChallengeZApp;
 
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+User user1 = new User("Adam", "456");
+User user2 = new User("Monika", "345");
+User user3 = new User("Zuzia", "234");
+User user4 = new User("Damian", "123");
 
-List<string> diary = new List<string>()
-{ "Adam", "Monika", "Arek", "Adam", "Monika", "Arek", "Zenon", "Marek", "Eliza", "Adam", "Adam", "Adam", "Monika", "Arek", "Adam", "Monika", "Adam", "Monika", "Arek", "Adam" };
+user1.AddScore(5);
+user1.AddScore(2);
+user1.AddScore(1);
+var result = user1.Result;
+Console.WriteLine(result);
 
-Console.WriteLine("PD+ - dzień 5");
-Console.WriteLine($"Osób łącznie: {diary.Count}.\nKażde imię powtarza się:");
+var name = User.GameName;
 
-byte repeat = 0;
-List<string> diaryWithoutRepeats = new List<string>();
-
-foreach (var name in diary)
-{
-    foreach (var name2 in diary)
-    {
-        if (name == name2) repeat++;
-    }
-    if (!diaryWithoutRepeats.Contains(name))
-    {
-        diaryWithoutRepeats.Add(name);
-        Console.WriteLine($"{repeat} razy - imię {name}");
-    }
-    repeat = 0;
-}
-
-
-
-// Program sprawdza ile i jakich cyfr występuje w danej liczbie.
-
-Console.WriteLine("\nPD - dzień 5");
-
-int checkedumber = 19711;
-string numberInString = checkedumber.ToString();
-char[] letters = numberInString.ToArray();
-
-Console.WriteLine($"W liczbie {checkedumber} występują cyfry:");
-
-byte repeatLetter = 0;
-
-List<char> numbers = new List<char>() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
-foreach (var number in numbers)
-{
-    foreach (var letter in letters)
-    {
-        if (letter == number) repeatLetter++;
-    }
-    Console.WriteLine($"{number} => {repeatLetter} razy");
-    repeatLetter = 0;
-}
+var pi = Math.PI;
