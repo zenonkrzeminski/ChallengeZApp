@@ -1,16 +1,51 @@
-﻿using ChallengeZApp;
+﻿// Program wyszukuje pracownika z najwyższą liczbą ocen
+// a następnie wyświetla jego dane oraz wyniki
 
-User user1 = new User("Adam", "456");
-User user2 = new User("Monika", "345");
-User user3 = new User("Zuzia", "234");
-User user4 = new User("Damian", "123");
+using ChallengeZApp;
 
-user1.AddScore(5);
-user1.AddScore(2);
-user1.AddScore(1);
-var result = user1.Result;
-Console.WriteLine(result);
+Employee employee1 = new ("Oberyn", "Martell", 40);
+Employee employee2 = new ("Tyrion", "Lannister", 32);
+Employee employee3 = new ("Eddard", "Stark", 41);
 
-var name = User.GameName;
+List<Employee> employees = new()
+{
+    employee1, employee2, employee3
+};
 
-var pi = Math.PI;
+employee1.AddScore(9);
+employee1.AddScore(8);
+employee1.AddScore(9);
+employee1.AddScore(10);
+employee1.AddScore(7);
+
+employee2.AddScore(7);
+employee2.AddScore(8);
+employee2.AddScore(6);
+employee2.AddScore(10);
+employee2.AddScore(4);
+
+employee3.AddScore(3);
+employee3.AddScore(8);
+employee3.AddScore(2);
+employee3.AddScore(10);
+employee3.AddScore(1);
+
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
+foreach (var employee in employees)
+{
+    if (employee.Result > maxResult) 
+    {
+        maxResult = employee.Result;
+        employeeWithMaxResult = employee; 
+    }
+}
+
+Console.WriteLine($"\tNajwyższą liczbę ocen o sumie równej: {maxResult}\n\tosiągnął: {employeeWithMaxResult.Name} {employeeWithMaxResult.Surename}, wiek {employeeWithMaxResult.Age}\n");
+
+Console.WriteLine("Wyniki pracowników:");
+foreach (var employee in employees)
+{
+    var result = employee.Result;
+    Console.WriteLine($"\t{employee.Name} {employee.Surename}, wiek {employee.Age}, suma ocen: {result}");
+}
