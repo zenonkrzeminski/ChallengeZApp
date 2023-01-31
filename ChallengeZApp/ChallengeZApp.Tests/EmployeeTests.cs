@@ -3,7 +3,7 @@ namespace ChallengeZApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenCollectSources_ShouldRessult()
+        public void WhenCollectPlusPoints_ShouldRessultTotalPoints()
         {
             // arrange
             var employee = new Employee("Oberyn", "Martell", 42);
@@ -18,7 +18,7 @@ namespace ChallengeZApp.Tests
         }
 
         [Test]
-        public void WhenCollectMinusSources_ShouldRessult()
+        public void WhenCollectPlusAndMinusPoints_ShouldRessultTotalPoints()
         {
             // arrange
             var employee = new Employee("Oberyn", "Martell", 42);
