@@ -1,6 +1,6 @@
 namespace ChallengeZApp.Tests
 {
-    public class Tests
+    public class EmployeeTests
     {
         [Test]
         public void WhenCollectPlusPoints_ShouldRessultTotalPoints()
