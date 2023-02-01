@@ -3,34 +3,51 @@ namespace ChallengeZApp.Tests
     public class EmployeeTests
     {
         [Test]
-        public void WhenCollectPlusPoints_ShouldRessultTotalPoints()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage()
         {
             // arrange
-            var employee = new Employee("Oberyn", "Martell", 42);
-            employee.AddScore(1);
-            employee.AddScore(6);
+            var employee = new Employee("Oberyn", "Martell");
+            employee.AddGrade(1);
+            employee.AddGrade(3);
+            employee.AddGrade(4);
 
             // act
-            var result = employee.Result;
+            var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(7, result);
+            Assert.AreEqual(2.67, Math.Round(statistics.Average,2));
         }
 
         [Test]
-        public void WhenCollectPlusAndMinusPoints_ShouldRessultTotalPoints()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
         {
             // arrange
-            var employee = new Employee("Oberyn", "Martell", 42);
-            employee.AddScore(1);
-            employee.AddScore(6);
-            employee.AddScore(-4);
+            var employee = new Employee("Oberyn", "Martell");
+            employee.AddGrade(1);
+            employee.AddGrade(3);
+            employee.AddGrade(4);
 
             // act
-            var result = employee.Result;
+            var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(3, result);
+            Assert.AreEqual(1, statistics.Min);
+        }
+
+        [Test]
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMax()
+        {
+            // arrange
+            var employee = new Employee("Oberyn", "Martell");
+            employee.AddGrade(1);
+            employee.AddGrade(3);
+            employee.AddGrade(4);
+
+            // act
+            var statistics = employee.GetStatistics();
+
+            // assert
+            Assert.AreEqual(4, statistics.Max);
         }
     }
 }
